@@ -4,4 +4,9 @@ export type UserProps = {
   location: string;
   followers: number;
   following: number;
+  message: string;
+};
+
+export type SearchProps = {
+  loadUser: (userName: string) => Promise<void>;
 };

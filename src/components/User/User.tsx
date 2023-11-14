@@ -1,8 +1,7 @@
-import React from "react";
-import { UserProps } from "../types/user";
 import { MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
-import classes from "../components/User.module.css";
+import { UserProps } from "../../types/user";
+import "./user.css";
 
 const User = ({
   login,
@@ -12,22 +11,24 @@ const User = ({
   location,
 }: UserProps) => {
   return (
-    <div className={classes.user}>
+    <div className="user">
       <img src={avatar_url} alt="login" />
       <h2>{login}</h2>
       {location && (
-        <p>
+        <p className="location">
           <MdLocationPin />
           <span>{location}</span>
         </p>
       )}
-      <div>
-        <p>Seguidores:</p>
-        <p>{followers}</p>
-      </div>
-      <div>
-        <p>Seguindo:</p>
-        <p>{following}</p>
+      <div className="stats">
+        <div>
+          <p>Seguidores:</p>
+          <p className="number-followers">{followers}</p>
+        </div>
+        <div>
+          <p>Seguindo:</p>
+          <p className="number-following">{following}</p>
+        </div>
       </div>
       <Link to={`/repos/${login}`}>Ver Melhores Projetos</Link>
     </div>

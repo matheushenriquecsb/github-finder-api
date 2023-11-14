@@ -1,42 +1,39 @@
-import Search from "../components/Search";
-import User from "../components/User";
-import Error from "../components/Error";
-import { UserProps } from "../types/user";
 import { useState } from "react";
+import Error from "../components/Error/Error";
+import Search from "../components/Search/Search";
+import User from "../components/User/User";
+import { fetchUserApi } from "../hooks/fetchUser";
+import { UserProps } from "../types/user";
 
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
 
-  const loadUser = async (userName: string) => {
+  const clearUserAndError = () => {
     setError(false);
     setUser(null);
+  };
 
-    const res = await fetch(`https://api.github.com/users/${userName}`);
+  const handleUserLoad = async (username: string) => {
+    clearUserAndError();
 
-    const data = await res.json();
+    try {
+      const userData = await fetchUserApi(username);
 
-    if (res.status === 404) {
+      if (userData.message === "Not Found") {
+        setError(true);
+        return;
+      }
+
+      setUser(userData);
+    } catch (error) {
       setError(true);
-      return;
     }
-
-    const { avatar_url, login, location, followers, following } = data;
-
-    const userData: UserProps = {
-      avatar_url,
-      login,
-      location,
-      followers,
-      following,
-    };
-
-    setUser(userData);
   };
 
   return (
     <div>
-      <Search loadUser={loadUser} />
+      <Search loadUser={handleUserLoad} />
       {user && <User {...user} />}
       {error && <Error />}
     </div>
