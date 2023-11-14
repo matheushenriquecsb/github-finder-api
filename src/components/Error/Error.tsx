@@ -1,8 +1,8 @@
-import React from "react";
+import "./error.css";
 
 const Error = () => {
   return (
-    <div>
+    <div className="error">
       <p>Usuario não encontrado!</p>
     </div>
   );
