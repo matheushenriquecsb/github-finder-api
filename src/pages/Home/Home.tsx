@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Error from "../components/Error/Error";
-import Search from "../components/Search/Search";
-import User from "../components/User/User";
-import { fetchUserApi } from "../hooks/fetchUser";
-import { UserProps } from "../types/user";
+import Error from "../../components/Error/Error";
+import Search from "../../components/Search/Search";
+import User from "../../components/User/User";
+import { fetchUserApi } from "../../hooks/fetchUser";
+import { UserProps } from "../../types/user";
 
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
