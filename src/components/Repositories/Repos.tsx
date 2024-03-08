@@ -1,9 +1,6 @@
 import { RepositoriesProps } from "../../types/repositories";
 
-import { AiOutlineFork, AiOutlineStar } from "react-icons/ai";
-import { BsCodeSlash } from "react-icons/bs";
-import { RiGitRepositoryLine } from "react-icons/ri";
-
+import { AiOutlineFork, AiOutlineStar, AiOutlineGithub } from "react-icons/ai";
 import "./repos.css";
 
 const Repos = ({
@@ -17,7 +14,7 @@ const Repos = ({
     <div className="repo">
       <h3>{name}</h3>
       <p>
-        <BsCodeSlash /> {language}
+        <AiOutlineGithub /> {language}
       </p>
       <div className="stats">
         <div>
@@ -30,8 +27,8 @@ const Repos = ({
         </div>
       </div>
       <a href={html_url} target="_blank" className="repo_btn">
-        <span>Ver código</span>
-        <RiGitRepositoryLine />
+        <span>Acesse o código</span>
+        <AiOutlineGithub />
       </a>
     </div>
   );

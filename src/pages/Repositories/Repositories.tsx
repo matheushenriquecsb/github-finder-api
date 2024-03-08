@@ -22,6 +22,7 @@ const Repositories = () => {
         setIsLoading(true);
         try {
           const reposData = await fetchRepos(username);
+          console.log(reposData);
           setRepos(reposData);
         } catch (error) {
           console.error("Error fetching repositories:", error);

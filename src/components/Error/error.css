@@ -1,5 +1,9 @@
-.error {
-  align-items: center;
+.error-alert {
   font-size: 25px;
-  margin: 35px;
+  margin-top: 25px;
+  background-color: rgb(254, 128, 128);
+}
+
+.error {
+  margin-left: 430px;
 }
