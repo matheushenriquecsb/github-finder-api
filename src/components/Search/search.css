@@ -19,14 +19,6 @@
   gap: 0.5rem;
 }
 
-.search_container input,
-.search_container button {
-  padding: 0.6rem;
-  border-radius: 3px;
-  border: none;
-  color: #6072ce;
-}
-
 .search_container button {
   background-color: #192564;
   cursor: pointer;

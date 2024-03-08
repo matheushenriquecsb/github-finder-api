@@ -19,6 +19,7 @@ const Home = () => {
 
     try {
       const userData = await fetchUserApi(username);
+      console.log(userData);
 
       if (userData.message === "Not Found") {
         setError(true);

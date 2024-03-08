@@ -1,10 +1,16 @@
 import "./error.css";
+import { Alert, Space } from "antd";
 
 const Error = () => {
   return (
-    <div className="error">
-      <p>Usuario não encontrado!</p>
-    </div>
+    <Space direction="vertical" className="error">
+      <Alert
+        className="error-alert"
+        message="Usuário não encontrado"
+        type="error"
+        showIcon
+      />
+    </Space>
   );
 };
 
